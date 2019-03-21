@@ -1,0 +1,14 @@
+@extends('layouts.bst')
+
+@section('content')
+    <div class="container">
+        <form action="/goods/upload/pdf" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <input type="file" name="upload">
+            <input type="submit" value="UPLOAD">
+        </form>
+    </div>
+@endsection
+@section('footer')
+    @parent
+@endsection
