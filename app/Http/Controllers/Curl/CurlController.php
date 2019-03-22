@@ -70,7 +70,7 @@ class CurlController extends Controller
             'email'=>$username,
             'password'=>$password
         ];
-        $url = "http://passport.miao629.com/ajax/mui";
+        $url = "http://passport.miao629.com/apiuser";
 
         $ch=curl_init();
         curl_setopt($ch,CURLOPT_URL,$url);
