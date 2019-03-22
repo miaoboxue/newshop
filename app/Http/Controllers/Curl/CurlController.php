@@ -70,6 +70,7 @@ class CurlController extends Controller
             'email'=>$username,
             'password'=>$password
         ];
+        print_r($data);die;
         $url = "http://passport.miao629.com/apiuser";
 
         $ch=curl_init();
