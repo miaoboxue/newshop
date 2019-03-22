@@ -24,6 +24,6 @@ class VerifyCsrfToken extends Middleware
         '/userlogin',
         '/curl/test',
         '/curl/*',
-        '/ajax/*',
+        '/ajax/mui',
     ];
 }
