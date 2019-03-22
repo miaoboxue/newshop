@@ -64,10 +64,10 @@ class CurlController extends Controller
 
     //账号
     public function ajaxmui(Request $request){
-        $username = $request->input('username');
+        $email = $request->input('email');
         $password = $request->input('password');
         $data=[
-            'email'=>$username,
+            'email'=>$email,
             'password'=>$password
         ];
         print_r($data);die;
