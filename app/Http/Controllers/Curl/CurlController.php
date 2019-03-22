@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Curl;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 class CurlController extends Controller
 {
     //
@@ -62,22 +61,25 @@ class CurlController extends Controller
         echo json_encode($data);
     }
 
-    public function ajaxmui(){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+
+    //账号
+    public function ajaxmui(Request $request){
+        $username = $request->input('username');
+        $password = $request->input('password');
         $data=[
-            'ok'=>'登录成功',
+            'email'=>$username,
+            'password'=>$password
         ];
-        $error=[
-            'on'=>0,
-        ];
+        $url = "http://passport.miao629.com/ajax/mui";
 
-        if($username== 'zhangsan' && $password == 'admin123'){
-            echo json_encode($data);
-        }else{
-            echo json_encode($error);
-
-        }
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_POST,1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_HEADER,0);
+        $rs=curl_exec($ch);
+        var_dump($rs);
     }
 
     //登录跳转

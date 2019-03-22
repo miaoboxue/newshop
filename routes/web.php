@@ -168,6 +168,7 @@ Route::post('/ajax/mui','Curl\CurlController@ajaxmui');
 
 
 Route::get('/api/login','Curl\CurlController@userlogin');
+Route::any('/','Curl\CurlController@index');
 
 
 
