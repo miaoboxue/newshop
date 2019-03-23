@@ -87,4 +87,11 @@ class CurlController extends Controller
     public function userlogin(){
         return view('api.userlogin');
     }
+
+
+
+    //个人中心
+    public function center(){
+        echo 111;
+    }
 }

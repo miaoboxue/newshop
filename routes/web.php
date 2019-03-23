@@ -171,5 +171,6 @@ Route::get('/api/login','Curl\CurlController@userlogin');
 Route::any('/','Curl\CurlController@index');
 
 
-
+//个人中心
+Route::post('/center','Curl\CurlController@center');
 
