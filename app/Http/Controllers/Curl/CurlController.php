@@ -93,8 +93,10 @@ class CurlController extends Controller
     //个人中心
     public function center(Request $request){
         $token = $request->input('token');
+        $uid  = $request->input('uid');
         $data=[
           'token'=>$token,
+            'uid'=>$uid,
         ];
         $url = "http://passport.miao629.com/center";
         $ch=curl_init();
