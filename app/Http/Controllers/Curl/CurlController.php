@@ -106,6 +106,6 @@ class CurlController extends Controller
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch,CURLOPT_HEADER,0);
         $rs=curl_exec($ch);
-        var_dump($rs);
+        return $rs;
     }
 }
