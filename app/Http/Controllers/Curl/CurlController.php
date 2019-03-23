@@ -92,6 +92,6 @@ class CurlController extends Controller
 
     //个人中心
     public function center(){
-        echo 111;
+        print_r($_POST['token']);
     }
 }
