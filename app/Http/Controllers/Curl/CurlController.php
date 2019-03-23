@@ -80,7 +80,7 @@ class CurlController extends Controller
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch,CURLOPT_HEADER,0);
         $rs=curl_exec($ch);
-        echo json_encode($rs);
+        return $rs;
     }
 
     //登录跳转
