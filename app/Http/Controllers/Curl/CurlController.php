@@ -91,7 +91,19 @@ class CurlController extends Controller
 
 
     //个人中心
-    public function center(){
-        print_r($_POST['token']);
+    public function center(Request $request){
+        $token = $request->input('token');
+        $data=[
+          'token'=>$token,
+        ];
+        $url = "http://passport.miao629.com/center";
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_POST,1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_HEADER,0);
+        $rs=curl_exec($ch);
+        var_dump($rs);
     }
 }
