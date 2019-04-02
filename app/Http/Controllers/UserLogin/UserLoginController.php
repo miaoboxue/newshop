@@ -50,7 +50,7 @@ class UserLoginController extends Controller
     public function center(Request $request){
         $token = $request->input('token');
         $uid = $request->input('uid');
-        $redis_token= Redis::get("user:login:token$uid");
+        $redis_token= Redis::get("login:token$uid");
         /*echo $redis_token;
         echo $token;*/
         if($token == $redis_token){
