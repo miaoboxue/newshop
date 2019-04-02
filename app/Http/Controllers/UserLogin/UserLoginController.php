@@ -51,11 +51,13 @@ class UserLoginController extends Controller
         $token = $request->input('token');
         $uid = $request->input('uid');
         $redis_token= Redis::get("api:user:login:token$uid");
-        if($token == $redis_token){
+        echo $redis_token;
+        echo $token;
+        /*if($token == $redis_token){
             return 0;
         }else{
             return 1;
-        }
+        }*/
     }
 
     //用户列表
