@@ -185,5 +185,5 @@ Route::post('/user/center','UserLogin\UserLoginController@center');
 
 //用户列表
 
-Route::post('/userList','UserLogin\UserLoginController@list);
+Route::post('/userList','UserLogin\UserLoginController@list');
 
