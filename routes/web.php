@@ -180,3 +180,10 @@ Route::post('/center','Curl\CurlController@center');
 Route::post('/login/ulogin','UserLogin\UserLoginController@userLogin');
 
 
+//互踢
+Route::post('/user/center','UserLogin\UserLoginController@center');
+
+//用户列表
+
+Route::post('/userList','UserLogin\UserLoginController@list);
+

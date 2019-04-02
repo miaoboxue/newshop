@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class UserLoginController extends Controller
 {
     //
-
+    //登录
     public function userLogin(Request $request){
         $email = $request -> input('email');
         $password = $request -> input('password');
@@ -45,4 +45,22 @@ class UserLoginController extends Controller
         return $response;
     }
 
+
+    //互踢
+    public function center(Request $request){
+        $token = $request->input('token');
+        $uid = $request->input('uid');
+        $redis_token= Redis::get("api:user:login:token$uid");
+        if($token == $redis_token){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    //用户列表
+    public function list(){
+        $userInfo = LoginModel::get();
+        print_r($userInfo);
+    }
 }
