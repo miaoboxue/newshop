@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\UserLogin;
-use App\model\LoginModel;
+use App\Model\LoginModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use App\Http\Controllers\Controller;
