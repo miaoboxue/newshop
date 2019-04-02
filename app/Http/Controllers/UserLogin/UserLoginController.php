@@ -25,7 +25,7 @@ class UserLoginController extends Controller
             $token = substr(md5(time() . mt_rand(1,99999)),10,10);
 
 
-            $redis_token_api_login='api:user:login:token'.$userInfo->id;
+            $redis_token_api_login='user:login:token'.$userInfo->id;
             Redis::set($redis_token_api_login,$token);
             Redis::expire($redis_token_api_login,time()+86400);
 
@@ -50,14 +50,14 @@ class UserLoginController extends Controller
     public function center(Request $request){
         $token = $request->input('token');
         $uid = $request->input('uid');
-        $redis_token= Redis::get("api:user:login:token$uid");
-        echo $redis_token;
-        echo $token;
-        /*if($token == $redis_token){
+        $redis_token= Redis::get("user:login:token$uid");
+        /*echo $redis_token;
+        echo $token;*/
+        if($token == $redis_token){
             return 0;
         }else{
             return 1;
-        }*/
+        }
     }
 
     //用户列表
