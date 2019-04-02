@@ -173,3 +173,10 @@ Route::get('/api/login','Curl\CurlController@userlogin');
 //个人中心
 Route::post('/center','Curl\CurlController@center');
 
+
+
+
+//验证登录
+Route::post('/login/ulogin','UserLogin\UserLoginController@userLogin');
+
+
