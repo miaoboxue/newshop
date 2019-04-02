@@ -54,9 +54,17 @@ class UserLoginController extends Controller
         /*echo $redis_token;
         echo $token;*/
         if($token == $redis_token){
-            return 1;
+            $response=[
+                'token'=>$token,
+                'redis_token'=>$redis_token,
+                'msg'=>1
+            ];
+            return $response;
         }else{
-            return 0;
+            $response=[
+                'msg'=>0
+            ];
+            return $response;
         }
     }
 
