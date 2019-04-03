@@ -32,7 +32,7 @@ class UserLoginController extends Controller
             $response=[
                 'erron'=>0,
                 'msg'=>'登录成功',
-                'token'=>$redis_app_token,
+                'token'=>$token,
                 'id'=>$userInfo->id
             ];
 
@@ -50,27 +50,20 @@ class UserLoginController extends Controller
     public function center(Request $request){
         $token = $request->input('token');
         $uid = $request->input('uid');
-        $redis_token= Redis::get("lening_app:user:login:token$uid");
+        $redis_token= Redis::get("app:user:login:token$uid");
         /*echo $redis_token;
         echo $token;*/
         if($token == $redis_token){
-            $response=[
-                'token'=>$token,
-                'redis_token'=>$redis_token,
-                'msg'=>1
-            ];
-            return $response;
+            return 1;
         }else{
-            $response=[
-                'msg'=>0
-            ];
-            return $response;
+
+            return 0;
         }
     }
 
     //用户列表
     public function list(){
         $userInfo = LoginModel::get();
-        print_r($userInfo);
+        print_r($userInfo);     
     }
 }
